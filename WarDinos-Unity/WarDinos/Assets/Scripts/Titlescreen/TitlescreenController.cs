@@ -23,7 +23,17 @@ public class TitlescreenController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+
+		/*
+		 * O sistema de Listener de cliques é similar ao de touch.
+		 * Tentem entender o código atual, onde será executadas ações para cada evento de clique.
+		 * Após a compreensão é apenas substituir de clique para toque.
+		 * Ambos tem funções parecidas, logo torna simples a substituição.
+		 * 
+		 * DOCUMENTAÇÃO
+		 * https://docs.unity3d.com/ScriptReference/Touch.html
+		*/
+
         singleplayerButton.onClick.AddListener(TaskOnClickSingleplayer);
         multiplayerButton.onClick.AddListener(TaskOnClickMultiplayer);
         crebitosButton.onClick.AddListener(TaskOnClickCrebitos);

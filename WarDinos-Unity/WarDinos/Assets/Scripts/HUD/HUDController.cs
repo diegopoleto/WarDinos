@@ -161,6 +161,11 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		/*
+		 * Devemos alterar todo esse código. 
+		 * Recomendo iniciar fazendo a TitlescreenController.cs pois o código é mais compreensível.
+		 * Vá para a TitlescreenController.cs e leia os comentários.
+		*/
         // ------ KEY ESCAPE --------------------------------------------------------------------
         if (Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene("titlescreen");
