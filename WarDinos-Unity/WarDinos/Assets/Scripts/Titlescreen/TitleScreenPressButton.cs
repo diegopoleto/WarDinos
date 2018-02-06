@@ -11,6 +11,12 @@ public class TitleScreenPressButton : MonoBehaviour {
 
     private bool pressed = false;
 
+	/*
+	 * COMEÇAR AQUI!
+	 * Devemos adicionar o toque na tela de Título.
+	 * No momento utilizamos o botão SPACE 
+	*/
+
 	// Update is called once per frame
 	void Update () {
         if (!pressed && Input.GetButtonDown("Submit")) {

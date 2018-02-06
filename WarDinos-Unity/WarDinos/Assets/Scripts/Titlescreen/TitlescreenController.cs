@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class TitlescreenController : MonoBehaviour {
@@ -25,25 +26,29 @@ public class TitlescreenController : MonoBehaviour {
     void Start () {
 
 		/*
-		 * O sistema de Listener de cliques é similar ao de touch.
+		 * O sistema de Listener de cliques é igual ao de touch.
 		 * Tentem entender o código atual, onde será executadas ações para cada evento de clique.
-		 * Após a compreensão é apenas substituir de clique para toque.
-		 * Ambos tem funções parecidas, logo torna simples a substituição.
+		 * Após a compreensão, devemos substituir nos outros arquivos.
+		 * Devemos substituir os comandos dos arquivos TitleScreenPressButton.cs e HUDController.cs por enquanto.
+		 * Se tudo der certo, devemos arrumar a RemakeController.cs
+		 * RECOMENDO COMEÇAR PELA TitleScreenPressButton.cs pois é bem mais simples.
 		 * 
-		 * DOCUMENTAÇÃO
-		 * https://docs.unity3d.com/ScriptReference/Touch.html
 		*/
 
-        singleplayerButton.onClick.AddListener(TaskOnClickSingleplayer);
+
+		singleplayerButton.onClick.AddListener(TaskOnClickSingleplayer);
         multiplayerButton.onClick.AddListener(TaskOnClickMultiplayer);
         crebitosButton.onClick.AddListener(TaskOnClickCrebitos);
         sairButton.onClick.AddListener(TaskOnClickSair);
         titlescreenLocker = GetComponent<MenuLocker>();
         
 		crebitosLocker = gameObjectCrebitos.GetComponent<MenuLocker>();
+		
+
 
 		gameLevelInfo = GameObject.Find("gameLevelInfo").GetComponent<LevelInfo>() ;
     }
+
 
     void TaskOnClickSingleplayer ()
     {
