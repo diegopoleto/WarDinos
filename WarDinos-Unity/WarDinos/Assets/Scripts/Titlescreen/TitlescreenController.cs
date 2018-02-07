@@ -32,7 +32,10 @@ public class TitlescreenController : MonoBehaviour {
 		 * Devemos substituir os comandos dos arquivos TitleScreenPressButton.cs e HUDController.cs por enquanto.
 		 * Se tudo der certo, devemos arrumar a RemakeController.cs
 		 * RECOMENDO COMEÇAR PELA TitleScreenPressButton.cs pois é bem mais simples.
-		 * 
+         * TitleScreenPressButton.cs -> Já foi implementado, devemos testar em um mobile.
+         * TitlesceenController.cs -> Testar no mobile se as funções do menu inicial já funcionam no touch.
+         * HUDController.cs -> Troca tudo hahahahaha.... =(
+		 * RemakeController.cs -> Poucas coisas para substituir, mas só faremos isso depois do HUDController.cs
 		*/
 
 
@@ -41,11 +44,7 @@ public class TitlescreenController : MonoBehaviour {
         crebitosButton.onClick.AddListener(TaskOnClickCrebitos);
         sairButton.onClick.AddListener(TaskOnClickSair);
         titlescreenLocker = GetComponent<MenuLocker>();
-        
 		crebitosLocker = gameObjectCrebitos.GetComponent<MenuLocker>();
-		
-
-
 		gameLevelInfo = GameObject.Find("gameLevelInfo").GetComponent<LevelInfo>() ;
     }
 

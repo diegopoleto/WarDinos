@@ -21,7 +21,4 @@ public class TutorialManager : MonoBehaviour {
 		SceneManager.LoadScene (0); /*CARREGA main*/
 	}
 
-
-
-
 }
