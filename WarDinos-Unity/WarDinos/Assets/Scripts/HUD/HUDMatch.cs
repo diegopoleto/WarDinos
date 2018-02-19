@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class HUDMatch : MonoBehaviour {
     //Teste para ver a funcionalidade da função changeTooltipText
-    public Text informationText;
+    private Text informationText;
     private string lastMessageString = " ";
     private int lastMessageFontSize = 16;
     private bool isMessaging = false;
@@ -26,12 +26,12 @@ public class HUDMatch : MonoBehaviour {
     public Button unitApatossauro;
     public Button unitTiranossauro;
     //Configuração para botões de unidades
-    public UnitButton unitVelociraptorUB;
-    public UnitButton unitEstegossauroUB;
-    public UnitButton unitTriceratopoUB;
-    public UnitButton unitPterodactiloUB;
-    public UnitButton unitApatossauroUB;
-    public UnitButton unitTiranossauroUB;
+    private UnitButton unitVelociraptorUB;
+    private UnitButton unitEstegossauroUB;
+    private UnitButton unitTriceratopoUB;
+    private UnitButton unitPterodactiloUB;
+    private UnitButton unitApatossauroUB;
+    private UnitButton unitTiranossauroUB;
 
     //Botões correspondentes a seleção de lanes -> Implementar
     public Button buttonLane1;
@@ -66,7 +66,7 @@ public class HUDMatch : MonoBehaviour {
     {
            
     }
-    
+
 /*Transformar isto em chamadas de evento!
 private void updateDinoGroupInfo () {
         int dinoQuantity = 0;
