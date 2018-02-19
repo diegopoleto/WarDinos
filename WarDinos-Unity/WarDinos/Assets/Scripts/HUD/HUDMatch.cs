@@ -8,6 +8,9 @@ public class HUDMatch : MonoBehaviour {
     public Button voltar;
     public GameObject panelUnits;
     public GameObject panelUpgrades;
+    public Button buttonLane1;
+    public Button buttonLane2;
+    public Button buttonLane3;
 
 	void Start () {
         voltar.onClick.AddListener(() => SceneManager.LoadScene("titlescreen"));
