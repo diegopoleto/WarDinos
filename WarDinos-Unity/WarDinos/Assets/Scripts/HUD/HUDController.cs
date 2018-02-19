@@ -122,7 +122,7 @@ public class HUDController : MonoBehaviour
     public DinoPanelTexts dpt;
 
     private int freeSlots = 4;
-    #if UNITY_STANDALONE || UNITY_WEBPLAYER
+
     // Use this for initialization
     void Start()
     {
@@ -156,7 +156,8 @@ public class HUDController : MonoBehaviour
         changeTooltipText("Seleciona Lane " + selectedButton.GetComponent<LaneButton>().getNumber() + " para Despacho", 14);
         displayMessage("Iniciando Controles do Campo de Batalha...", 4.0f, 15);
     }
-
+    
+    #if UNITY_STANDALONE
     // Update is called once per frame
     void Update()
     {
@@ -663,7 +664,7 @@ public class HUDController : MonoBehaviour
         }
         // ------------------------------------------------------------------------------------
     }
-
+    #endif
 
     private void changeButton(Button nextButton, bool keepHighlited)
     {
@@ -1184,5 +1185,4 @@ public class HUDController : MonoBehaviour
         else
             buttonUpgradeVida.GetComponentsInChildren<Image>()[1].sprite = maxLevelSprite;
     }
-    #endif
 }
