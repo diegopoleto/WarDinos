@@ -20,7 +20,7 @@ public class TitleScreenPressButton : MonoBehaviour {
     */
     void Update () {
         //Verifica se ocorreu um toque na tela e então executa a função abaixo.
-        if (!pressed && Input.touchCount>0) {
+        if (!pressed && Input.GetMouseButtonDown(0)) {
             pressed = true;
             
             //GUI DO MENU INICIAL

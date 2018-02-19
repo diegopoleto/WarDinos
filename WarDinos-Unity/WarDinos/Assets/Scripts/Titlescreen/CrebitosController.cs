@@ -36,7 +36,7 @@ public class CrebitosController : MonoBehaviour
     {
         if (!titlescreenLocker.isLocked() &&
             !crebitosLocker.isLocked() &&
-            Input.GetButtonUp("Submit")
+            Input.GetMouseButtonDown(0)
             && canvasG.alpha == 1.0f)
         {
             Debug.Log("Voltou da tela de Crebitos para Titlescreen");

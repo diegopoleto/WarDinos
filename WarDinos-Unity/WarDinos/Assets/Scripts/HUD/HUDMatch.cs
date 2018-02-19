@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class HUDMatch : MonoBehaviour {
     public Button voltar;
+    public Button loja;
     
 	void Start () {
         voltar.onClick.AddListener(() => SceneManager.LoadScene("titlescreen"));
     }
+
+
 }
