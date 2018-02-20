@@ -18,14 +18,15 @@ public class HUDMatch : MonoBehaviour {
     public GameObject panelUnits;
     public GameObject panelUpgrades;
     
-    //Botões correspondentes às unidades. On click -> adicionar uma unidade no vetor
+    public Button addUnit;
+    public Button subUnit;
+
     public Button unitVelociraptor;
     public Button unitEstegossauro;
     public Button unitTriceratopo;
     public Button unitPterodactilo;
     public Button unitApatossauro;
     public Button unitTiranossauro;
-    //Configuração para botões de unidades
     private UnitButton unitVelociraptorUB;
     private UnitButton unitEstegossauroUB;
     private UnitButton unitTriceratopoUB;
@@ -37,6 +38,7 @@ public class HUDMatch : MonoBehaviour {
     public Button buttonLane1;
     public Button buttonLane2;
     public Button buttonLane3;
+    private int selectedLane;
 
 	void Start () {
         voltar.onClick.AddListener(() => SceneManager.LoadScene("titlescreen"));
@@ -56,16 +58,18 @@ public class HUDMatch : MonoBehaviour {
 
     public void ButtonLane1OnClick()
     {
-        
+        selectedLane = 1;
     }
     public void ButtonLane2OnClick()
     {
-        
+        selectedLane = 2;
     }
     public void ButtonLane3OnClick()
     {
-           
+        selectedLane = 3;
     }
+
+
 
 /*Transformar isto em chamadas de evento!
 private void updateDinoGroupInfo () {
