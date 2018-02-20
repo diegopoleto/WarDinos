@@ -5,12 +5,31 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HUDMatch : MonoBehaviour {
+    //GameObjects do Player
+    public GameObject pgo;
+    private Player pgoPlayer;
+    private Dinossauro pgoPlayerApato;
+    private Dinossauro pgoPlayerVeloci;
+    private Dinossauro pgoPlayerTricera;
+    private Dinossauro pgoPlayerTRex;
+    private Dinossauro pgoPlayerEstego;
+    private Dinossauro pgoPlayerPtero;
+    private Dinossauro[] pgoPlayerDinoVector;
+    
+    
     //Teste para ver a funcionalidade da função changeTooltipText
     private Text informationText;
     private string lastMessageString = " ";
     private int lastMessageFontSize = 16;
     private bool isMessaging = false;
     
+    private int quantity = 0;
+    private int groupPrice = 0;
+    public Image[] dinoGroupFrames;
+    public Sprite dinoGroupFreeSlotSprite;
+    public Text dinoGroupCostText;
+
+        
     //Botão de voltar, funcionalidade já implementada.
     public Button voltar;
     
@@ -41,6 +60,16 @@ public class HUDMatch : MonoBehaviour {
     private int selectedLane;
 
 	void Start () {
+
+        pgoPlayerDinoVector = new Dinossauro[7];
+        pgoPlayer = pgo.GetComponent<Player>();
+        pgoPlayerApato = pgoPlayerDinoVector[(int)GroupController.DinoType.APATOSSAURO] = pgoPlayer.goApatossauro.GetComponent<Dinossauro>();
+        pgoPlayerPtero = pgoPlayerDinoVector[(int)GroupController.DinoType.PTERODACTILO] = pgoPlayer.goPterodactilo.GetComponent<Dinossauro>();
+        pgoPlayerTRex = pgoPlayerDinoVector[(int)GroupController.DinoType.TREX] = pgoPlayer.goTrex.GetComponent<Dinossauro>();
+        pgoPlayerEstego = pgoPlayerDinoVector[(int)GroupController.DinoType.ESTEGOSSAURO] = pgoPlayer.goEstegossauro.GetComponent<Dinossauro>();
+        pgoPlayerTricera = pgoPlayerDinoVector[(int)GroupController.DinoType.TRICERATOPO] = pgoPlayer.goTriceratopo.GetComponent<Dinossauro>();
+        pgoPlayerVeloci = pgoPlayerDinoVector[(int)GroupController.DinoType.RAPTOR] = pgoPlayer.goVelociraptor.GetComponent<Dinossauro>();
+
         voltar.onClick.AddListener(() => SceneManager.LoadScene("titlescreen"));
         CanvasGroup cgunits = panelUnits.GetComponent<CanvasGroup>();
         CanvasGroup cgupgrades = panelUpgrades.GetComponent<CanvasGroup>();
@@ -68,50 +97,31 @@ public class HUDMatch : MonoBehaviour {
     {
         selectedLane = 3;
     }
+    
+    /*
+    Quando o botão AddUnit for tocado/clicado deve adicionar uma unidade do dinossauro correspondente
+    */
+    public void ButtonAddUnitOnClick(UnitButton dinoButton){
+        
+        dinoGroupFrames[quantity].sprite = dinoButton.getSpriteInFrame();
+        quantity++;
+        if(dinoButton.DinosaurType == pgoPlayerTRex.DinoType)
+            groupPrice += pgoPlayerTRex.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerTricera.DinoType)
+            groupPrice += pgoPlayerTricera.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerEstego.DinoType)
+            groupPrice += pgoPlayerEstego.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerApato.DinoType)
+            groupPrice += pgoPlayerApato.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerVeloci.DinoType)
+            groupPrice += pgoPlayerVeloci.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerPtero.DinoType)
+            groupPrice += pgoPlayerPtero.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerTRex.DinoType)
+            groupPrice += pgoPlayerTRex.Custo;
 
-
-
-/*Transformar isto em chamadas de evento!
-private void updateDinoGroupInfo () {
-        int dinoQuantity = 0;
-        int displayGroupPrice = 0;
-        for (int i=0; i<buttonUnitTiranossauroUB.getQuantityOnGroup(); i++) {
-            dinoGroupFrames[dinoQuantity].sprite = buttonUnitTiranossauroUB.getSpriteInFrame();
-            displayGroupPrice += pgoPlayerTRex.Custo;
-            dinoQuantity++;
-        }
-        for (int i = 0; i < buttonUnitTriceratopoUB.getQuantityOnGroup(); i++) {
-            dinoGroupFrames[dinoQuantity].sprite = buttonUnitTriceratopoUB.getSpriteInFrame();
-            displayGroupPrice += pgoPlayerTricera.Custo;
-            dinoQuantity++;
-        }
-        for (int i = 0; i < buttonUnitEstegossauroUB.getQuantityOnGroup(); i++) {
-            dinoGroupFrames[dinoQuantity].sprite = buttonUnitEstegossauroUB.getSpriteInFrame();
-            displayGroupPrice += pgoPlayerEstego.Custo;
-            dinoQuantity++;
-        }
-        for (int i = 0; i < buttonUnitApatossauroUB.getQuantityOnGroup(); i++) {
-            dinoGroupFrames[dinoQuantity].sprite = buttonUnitApatossauroUB.getSpriteInFrame();
-            displayGroupPrice += pgoPlayerApato.Custo;
-            dinoQuantity++;
-        }
-        for (int i = 0; i < buttonUnitVelociraptorUB.getQuantityOnGroup(); i++) {
-            dinoGroupFrames[dinoQuantity].sprite = buttonUnitVelociraptorUB.getSpriteInFrame();
-            displayGroupPrice += pgoPlayerVeloci.Custo;
-            dinoQuantity++;
-        }
-        for (int i = 0; i < buttonUnitPterodactiloUB.getQuantityOnGroup(); i++) {
-            dinoGroupFrames[dinoQuantity].sprite = buttonUnitPterodactiloUB.getSpriteInFrame();
-            displayGroupPrice += pgoPlayerPtero.Custo;
-            dinoQuantity++;
-        }
-
-        dinoGroupCostText.text = displayGroupPrice.ToString();
-
-        // Preenche o que sobrou de espaço vazios no grupo com nenhuma imagem
-        for (int i = dinoQuantity; i<4; i++) {
-            dinoGroupFrames[i].sprite = dinoGroupFreeSlotSprite;
-        }
+    dinoGroupCostText.text = groupPrice.ToString();
     }
-*/ 
+
+
 }
