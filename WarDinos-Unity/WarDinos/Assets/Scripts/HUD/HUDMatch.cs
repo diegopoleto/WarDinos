@@ -101,7 +101,8 @@ public class HUDMatch : MonoBehaviour {
     /*
     Quando o botão AddUnit for tocado/clicado deve adicionar uma unidade do dinossauro correspondente
     */
-    public void ButtonAddUnitOnClick(UnitButton dinoButton){
+    public void ButtonAddUnitOnClick(UnitButton dinoButton)
+    {
         
         dinoGroupFrames[quantity].sprite = dinoButton.getSpriteInFrame();
         quantity++;
@@ -122,6 +123,27 @@ public class HUDMatch : MonoBehaviour {
 
     dinoGroupCostText.text = groupPrice.ToString();
     }
+    /*
+    Quando o botão SubUnit for tocado/clicado deve retirar uma unidade de dinossauro
+    */
+    public void ButtonSubUnitOnClick()
+    {
+        quantity--;
+        if(dinoButton.DinosaurType == pgoPlayerTRex.DinoType)
+            groupPrice -= pgoPlayerTRex.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerTricera.DinoType)
+            groupPrice -= pgoPlayerTricera.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerEstego.DinoType)
+            groupPrice -= pgoPlayerEstego.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerApato.DinoType)
+            groupPrice -= pgoPlayerApato.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerVeloci.DinoType)
+            groupPrice -= pgoPlayerVeloci.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerPtero.DinoType)
+            groupPrice -= pgoPlayerPtero.Custo;
+        if(dinoButton.DinosaurType == pgoPlayerTRex.DinoType)
+            groupPrice -= pgoPlayerTRex.Custo;
 
-
+    dinoGroupCostText.text = groupPrice.ToString();
+    }
 }
